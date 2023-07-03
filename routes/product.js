@@ -17,11 +17,12 @@ product.get('/', async (req, res) => {
 
 product.post('/', async (req, res) => {
         try {
+                const catID = req.body.category
                 const productmodel = new Productdb({
                 name: req.body.name,
                 price: req.body.price,
                 description: req.body.description,
-                category: categorySchema._id
+                category: catID
         })
         const newProduct = await productmodel.save()
         res.json(newProduct)
@@ -33,7 +34,7 @@ product.post('/', async (req, res) => {
 
 product.get('/:id', async (req, res) => {
         const productID = req.params.id;
-        const singleProduct = await Productdb.findById(productID)
+        const singleProduct = await Productdb.findById(productID).populate('category')
         res.json(singleProduct)
 })
 
