@@ -1,0 +1,35 @@
+GET http://localhost:4002/product/11
+
+###
+
+GET http://localhost:4002/product
+
+###
+POST http://localhost:4002/product HTTP/1.1
+header name: header value
+
+content
+Content-Type: application/json
+{
+        "name" : "Vape",
+        "price" : 50000,
+        "description" : "Lost Vape"
+}
+
+###
+GET http:localhost:4002/product
+
+###
+POST http://localhost:4002/product
+
+{
+        "name" : "Vape",
+        "price": 50000,
+        "description" : "Lost vape",
+}
+
+###
+GET http://localhost:4002/product
+###
+
+POST http://localhost:4002/product
